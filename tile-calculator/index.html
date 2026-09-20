@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+  <title>Tile Calculator | Calculate How Many Tiles You Need</title>
+
+<meta
+    name="description"
+    content="Free tile calculator to estimate how many tiles you need for floors, walls and other surfaces, including a waste allowance."
+>
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://prepmyproject.com/tile-calculator/">
+
+<meta property="og:url" content="https://prepmyproject.com/tile-calculator/">
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Tile Calculator | Calculate How Many Tiles You Need"
+>
+
+<meta
+    property="og:description"
+    content="Estimate how many tiles you need for your project using surface dimensions, tile size and waste allowance."
+>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="nav">
+
+        <a class="logo" href="/">
+            PrepMyProject
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#calculators">Calculators</a>
+            <a href="/#about">About</a>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+<h2>Tile Calculator</h2>
+
+<p>
+    Estimate how many tiles you need for your floor, wall, or other surface.
+</p>
+
+<div class="calculator">
+
+    <div class="unit-selector">
+
+        <p class="section-label">Measurement Unit</p>
+
+        <div class="unit-buttons">
+
+            <label>
+                <input
+                    type="radio"
+                    name="unitSystem"
+                    value="metric"
+                    checked
+                >
+                Metric
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="unitSystem"
+                    value="imperial"
+                >
+                Imperial
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <label for="areaLength" id="areaLengthLabel">
+        Area Length (m)
+    </label>
+
+    <input
+        type="number"
+        id="areaLength"
+        placeholder="e.g. 4"
+        min="0"
+        step="any"
+    >
+
+
+    <label for="areaWidth" id="areaWidthLabel">
+        Area Width (m)
+    </label>
+
+    <input
+        type="number"
+        id="areaWidth"
+        placeholder="e.g. 3"
+        min="0"
+        step="any"
+    >
+
+
+    <label for="tileLength" id="tileLengthLabel">
+        Tile Length (cm)
+    </label>
+
+    <p class="helper-text">
+        Enter the length of one tile.
+    </p>
+
+    <input
+        type="number"
+        id="tileLength"
+        placeholder="e.g. 60"
+        min="0"
+        step="any"
+    >
+
+
+    <label for="tileWidth" id="tileWidthLabel">
+        Tile Width (cm)
+    </label>
+
+    <p class="helper-text">
+        Enter the width of one tile.
+    </p>
+
+    <input
+        type="number"
+        id="tileWidth"
+        placeholder="e.g. 60"
+        min="0"
+        step="any"
+    >
+
+
+    <label for="wasteAllowance">
+        Waste Allowance (%)
+    </label>
+
+    <p class="helper-text">
+        Add extra tiles for cuts, breakage, and future replacements. You can adjust this percentage for your project.
+    </p>
+
+    <input
+        type="number"
+        id="wasteAllowance"
+        value="10"
+        min="0"
+        step="any"
+    >
+
+
+    <label for="tilesPerBox">
+        Tiles Per Box (optional)
+    </label>
+
+    <p class="helper-text">
+        Enter the number of tiles in each box to estimate how many boxes you need.
+    </p>
+
+    <input
+        type="number"
+        id="tilesPerBox"
+        placeholder="e.g. 4"
+        min="1"
+        step="1"
+    >
+
+
+    <label for="pricingMethod">
+        Pricing Method
+    </label>
+
+    <select id="pricingMethod">
+        <option value="tile">Price per tile</option>
+        <option value="box">Price per box</option>
+    </select>
+
+
+    <label for="currency">
+        Currency
+    </label>
+
+    <select id="currency">
+        <option value="USD">USD ($)</option>
+        <option value="GBP">GBP (£)</option>
+        <option value="EUR">EUR (€)</option>
+        <option value="CAD">CAD (C$)</option>
+        <option value="AUD">AUD (A$)</option>
+        <option value="NZD">NZD (NZ$)</option>
+        <option value="SGD">SGD (S$)</option>
+        <option value="MYR">MYR (RM)</option>
+    </select>
+
+
+    <label for="price">
+        Price (optional)
+    </label>
+
+    <p class="helper-text" id="priceHelper">
+        Enter the price of one tile.
+    </p>
+
+    <input
+        type="number"
+        id="price"
+        placeholder="e.g. 5"
+        min="0"
+        step="any"
+    >
+
+
+    <button id="calculateButton">
+        Calculate
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<section class="content-section">
+
+    <h2>How to Use the Tile Calculator</h2>
+
+    <p>
+        Enter the length and width of the area you want to tile, then enter the
+        dimensions of a single tile. Choose Metric or Imperial units to match
+        your measurements.
+    </p>
+
+    <p>
+        Add a waste allowance to account for cuts, breakage, and spare tiles.
+        The calculator uses 10% by default, but you can adjust this percentage
+        to suit your project.
+    </p>
+
+    <p>
+        If you know how many tiles are included in each box, enter the number
+        to estimate how many boxes you may need to purchase. You can also enter
+        a price per tile or price per box to estimate the total material cost.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>How Tile Calculation Works</h2>
+
+    <p>
+        The calculator first multiplies the length and width of your project
+        area to determine the total surface area.
+    </p>
+
+    <p>
+        It then calculates the area of one tile and divides the project area
+        by the tile area to estimate how many tiles are required before waste.
+    </p>
+
+    <p>
+        Your selected waste allowance is then added to the estimate, and the
+        result is rounded up to a whole tile so that you have enough tiles to
+        cover the calculated area.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>How Much Extra Tile Should I Buy?</h2>
+
+    <p>
+        Extra tiles are useful because some tiles may need to be cut during
+        installation, and others may be damaged or broken. Keeping spare tiles
+        can also be helpful for future repairs.
+    </p>
+
+    <p>
+        The calculator uses a 10% waste allowance by default. You can adjust
+        this percentage depending on your project, tile layout, installation
+        pattern, and the amount of cutting required.
+    </p>
+
+    <p>
+        Projects with diagonal layouts, complex patterns, irregular spaces, or
+        many cuts may require a higher waste allowance.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>How to Calculate Tile Boxes</h2>
+
+    <p>
+        Tiles are often sold in boxes rather than individually. If you know
+        how many tiles are included in each box, enter that number in the
+        Tiles Per Box field.
+    </p>
+
+    <p>
+        The calculator divides the recommended number of tiles by the number
+        of tiles in each box and rounds up to the next full box. This helps
+        ensure that the purchase contains at least the calculated number of
+        tiles required.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>Tile Calculator Example</h2>
+
+    <p>
+        Imagine you are tiling an area that is 4 metres long and 3 metres wide.
+        The total surface area is 12 square metres.
+    </p>
+
+    <p>
+        If each tile measures 60 cm × 60 cm, one tile covers 0.36 square metres.
+        Dividing the surface area by the tile area gives an initial estimate of
+        34 tiles after rounding up.
+    </p>
+
+    <p>
+        With a 10% waste allowance, the calculator recommends 37 tiles. If the
+        tiles are sold in boxes of four, you would need 10 boxes, giving you
+        40 tiles in total.
+    </p>
+
+    <p>
+        If you enter a price per tile or price per box, the calculator can also
+        estimate the total purchase cost.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How many tiles do I need?</h3>
+
+    <p>
+        The number of tiles you need depends on the size of the area, the size
+        of each tile, and the waste allowance you choose. Enter these
+        measurements into the calculator to estimate the required quantity.
+    </p>
+
+
+    <h3>How do I calculate tiles for a floor or wall?</h3>
+
+    <p>
+        Measure the length and width of the surface and enter those dimensions
+        into the calculator. Then enter the length and width of one tile. The
+        calculator compares the total surface area with the area covered by
+        each tile.
+    </p>
+
+
+    <h3>How much tile waste should I allow?</h3>
+
+    <p>
+        The calculator starts with a 10% waste allowance. The appropriate
+        amount can vary depending on the layout, tile pattern, room shape, and
+        amount of cutting required, so you can adjust the percentage for your
+        project.
+    </p>
+
+
+    <h3>Does the calculator work with Metric and Imperial measurements?</h3>
+
+    <p>
+        Yes. Select Metric to enter the project area in metres and tile
+        dimensions in centimetres, or select Imperial to enter the project
+        area in feet and tile dimensions in inches.
+    </p>
+
+
+    <h3>How many boxes of tiles should I buy?</h3>
+
+    <p>
+        Enter the number of tiles included in each box. The calculator will
+        round the required quantity up to the next full box and show the total
+        number of tiles that would be purchased.
+    </p>
+
+
+    <h3>Can I estimate the cost of my tiles?</h3>
+
+    <p>
+        Yes. Choose whether your price is per tile or per box, select your
+        currency, and enter the price. The calculator will estimate the total
+        purchase cost based on the selected pricing method.
+    </p>
+
+</section>
+
+
+<section class="content-section">
+
+    <h2>Important Note</h2>
+
+    <p>
+        This calculator provides an estimate for planning purposes. Actual tile
+        requirements can vary depending on installation pattern, cuts, room
+        shape, damaged tiles, manufacturer packaging, and other project-specific
+        factors.
+    </p>
+
+    <p>
+        Always check the tile manufacturer's specifications and consider your
+        installer or supplier's recommendations before purchasing materials.
+    </p>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
