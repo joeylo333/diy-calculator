@@ -1,0 +1,394 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+/* Site Header */
+
+.site-header {
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.nav-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.logo:hover {
+    color: #111827;
+}
+
+@media (max-width: 760px) {
+    .nav {
+        padding: 18px 20px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        font-size: 14px;
+    }
+}
+
+main {
+    width: 90%;
+    max-width: 760px;
+    margin: 50px auto;
+}
+
+main > h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+main > p {
+    color: #6b7280;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.calculator {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.calculator label {
+    display: block;
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.calculator label:first-child {
+    margin-top: 0;
+}
+
+.calculator input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.calculator select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.calculator input:focus {
+    outline: none;
+    border-color: #374151;
+}
+
+button {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #111827;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #374151;
+}
+
+#result {
+    margin-top: 28px;
+}
+
+#result h2 {
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#result p {
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+@media (max-width: 600px) {
+
+    main {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    main > h2 {
+        font-size: 30px;
+    }
+
+    .calculator {
+        padding: 20px;
+    }
+}
+.project-type {
+    margin-bottom: 24px;
+}
+
+.project-type .section-label {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.project-type label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-weight: 600;
+}
+
+.project-type input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+.unit-selector {
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.unit-selector .section-label {
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.unit-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.unit-buttons label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex: 1;
+
+    margin: 0;
+    padding: 12px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.unit-buttons input {
+    width: auto;
+    margin: 0;
+}
+.pattern-match {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+.pattern-match .section-label {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.pattern-match label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-weight: 600;
+}
+
+.pattern-match input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+.result-summary {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f3f4f6;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result-summary .result-label {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #6b7280;
+}
+
+.result-summary h2 {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.result-grid div {
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+}
+
+.result-grid span {
+    display: block;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.result-grid strong {
+    font-size: 17px;
+}
+
+.calculation-breakdown {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.calculation-breakdown h3 {
+    margin-top: 0;
+}
+
+.calculation-breakdown p {
+    line-height: 1.6;
+}
+
+.calculation-breakdown hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.helper-text {
+    margin: 4px 0 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #6b7280;
+}
+.content-section {
+    margin-top: 48px;
+    padding: 28px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.content-section h2 {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.content-section p {
+    line-height: 1.7;
+    color: #4b5563;
+}
+header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header a:hover {
+    opacity: 0.8;
+}
+/* Doors & Windows method selector */
+
+.opening-method {
+    margin-top: 22px;
+    margin-bottom: 20px;
+}
+
+.opening-method .input-title {
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.opening-method .helper-text {
+    margin-bottom: 12px;
+}
+
+.opening-method label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.opening-method input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+/* Door & Window measurement groups */
+
+.opening-section-title {
+    margin: 18px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}

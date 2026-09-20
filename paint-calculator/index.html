@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Paint Calculator | Calculate How Much Paint You Need</title>
+
+    <meta
+        name="description"
+        content="Free paint calculator to estimate how much paint you need for a single wall or whole room. Calculate wall area, paintable area, coats, coverage, and paint required."
+    >
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://prepmyproject.com/paint-calculator/">
+
+    <meta property="og:url" content="https://prepmyproject.com/paint-calculator/">
+
+    <meta property="og:type" content="website">
+
+    <meta
+        property="og:title"
+        content="Paint Calculator | Calculate How Much Paint You Need"
+    >
+
+    <meta
+        property="og:description"
+        content="Estimate how much paint you need for a single wall or whole room using wall dimensions, number of coats, and paint coverage."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="nav">
+
+        <a class="logo" href="/">
+            PrepMyProject
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#calculators">Calculators</a>
+            <a href="/#about">About</a>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+    <h2>Paint Calculator</h2>
+
+    <p>
+        Estimate how much paint you need for a single wall or whole room.
+    </p>
+
+    <div class="calculator">
+
+        <div class="unit-selector">
+
+            <p class="section-label">Measurement Unit</p>
+
+            <div class="unit-buttons">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="unitSystem"
+                        value="metric"
+                        checked
+                    >
+                    Metric
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="unitSystem"
+                        value="imperial"
+                    >
+                    Imperial
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="project-type">
+
+            <p class="section-label">What are you painting?</p>
+
+            <label>
+                <input
+                    type="radio"
+                    name="projectType"
+                    value="wall"
+                    checked
+                >
+                A single wall
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="projectType"
+                    value="room"
+                >
+                A whole room
+            </label>
+
+        </div>
+
+        <div id="singleWallInputs">
+
+            <label for="wallWidth" id="wallWidthLabel">
+                Wall Width (m)
+            </label>
+
+            <input
+                type="number"
+                id="wallWidth"
+                placeholder="e.g. 4"
+                min="0"
+                step="any"
+            >
+
+        </div>
+
+        <div id="wholeRoomInputs" style="display: none;">
+
+            <label for="roomLength" id="roomLengthLabel">
+                Room Length (m)
+            </label>
+
+            <input
+                type="number"
+                id="roomLength"
+                placeholder="e.g. 5"
+                min="0"
+                step="any"
+            >
+
+            <label for="roomWidth" id="roomWidthLabel">
+                Room Width (m)
+            </label>
+
+            <input
+                type="number"
+                id="roomWidth"
+                placeholder="e.g. 4"
+                min="0"
+                step="any"
+            >
+
+        </div>
+
+        <label for="wallHeight" id="wallHeightLabel">
+            Wall Height (m)
+        </label>
+
+        <input
+            type="number"
+            id="wallHeight"
+            placeholder="e.g. 2.4"
+            min="0"
+            step="any"
+        >
+
+        <label for="coats">
+            Number of Coats
+        </label>
+
+        <p class="helper-text">
+            Enter the number of coats you plan to apply. Two coats are commonly used for many painting projects, but follow your paint manufacturer's instructions.
+        </p>
+
+        <input
+            type="number"
+            id="coats"
+            value="2"
+            min="1"
+            step="1"
+        >
+
+        <label for="coverage" id="coverageLabel">
+            Paint Coverage (m²/L)
+        </label>
+
+        <p class="helper-text">
+            Check the paint container or manufacturer's specifications for the recommended coverage rate.
+        </p>
+
+        <input
+            type="number"
+            id="coverage"
+            placeholder="e.g. 10"
+            min="0"
+            step="any"
+        >
+        <div class="opening-method">
+    <p class="input-title">Doors & Windows — optional</p>
+
+    <p class="helper-text">
+        Deduct doors, windows, or other areas you do not plan to paint.
+    </p>
+
+    <label>
+        <input
+            type="radio"
+            name="openingMethod"
+            value="total"
+            checked
+        >
+        I know the total area
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="openingMethod"
+            value="calculate"
+        >
+        Help me calculate it
+    </label>
+</div>
+        <div id="totalAreaInputs">
+
+    <label for="doorArea" id="doorAreaLabel">
+        Total Door Area (m²) — optional
+    </label>
+
+    <p class="helper-text">
+        Enter the combined area of doors you do not plan to paint. Leave blank if you do not want to deduct them.
+    </p>
+
+    <input
+        type="number"
+        id="doorArea"
+        placeholder="e.g. 2"
+        min="0"
+        step="any"
+    >
+
+    <label for="windowArea" id="windowAreaLabel">
+        Total Window Area (m²) — optional
+    </label>
+
+    <p class="helper-text">
+        Enter the combined area of windows or other openings you do not plan to paint.
+    </p>
+
+    <input
+        type="number"
+        id="windowArea"
+        placeholder="e.g. 3"
+        min="0"
+        step="any"
+    >
+
+</div>
+
+
+<div id="openingCalculatorInputs" style="display: none;">
+
+    <p class="opening-section-title">Door Measurements</p>
+
+    <p class="helper-text">
+    Enter the dimensions for doors of the same size.
+    </p>
+
+    <label for="doorWidth" id="doorWidthLabel">
+        Door Width (m)
+    </label>
+
+    <input
+        type="number"
+        id="doorWidth"
+        placeholder="e.g. 0.9"
+        min="0"
+        step="any"
+    >
+
+    <label for="doorHeight" id="doorHeightLabel">
+        Door Height (m)
+    </label>
+
+    <input
+        type="number"
+        id="doorHeight"
+        placeholder="e.g. 2.1"
+        min="0"
+        step="any"
+    >
+
+    <label for="doorQuantity">
+        Number of Doors
+    </label>
+
+    <input
+        type="number"
+        id="doorQuantity"
+        value="1"
+        min="0"
+        step="1"
+    >
+
+
+    <p class="opening-section-title">Window Measurements</p>
+
+    <p class="helper-text">
+    Enter the dimensions for windows of the same size.
+    </p>
+
+    <label for="windowWidth" id="windowWidthLabel">
+        Window Width (m)
+    </label>
+
+    <input
+        type="number"
+        id="windowWidth"
+        placeholder="e.g. 1.2"
+        min="0"
+        step="any"
+    >
+
+    <label for="windowHeight" id="windowHeightLabel">
+        Window Height (m)
+    </label>
+
+    <input
+        type="number"
+        id="windowHeight"
+        placeholder="e.g. 1.2"
+        min="0"
+        step="any"
+    >
+
+    <label for="windowQuantity">
+        Number of Windows
+    </label>
+
+    <input
+        type="number"
+        id="windowQuantity"
+        value="1"
+        min="0"
+        step="1"
+    >
+
+</div>
+        <label for="containerSize" id="containerSizeLabel">
+            Paint Container Size (L)
+        </label>
+
+        <p class="helper-text">
+            Enter the size of the paint container you plan to buy to estimate how many containers are required.
+        </p>
+
+        <input
+            type="number"
+            id="containerSize"
+            placeholder="e.g. 5"
+            min="0"
+            step="any"
+        >
+
+        <label for="currency">
+            Currency
+        </label>
+
+        <select id="currency">
+            <option value="USD">USD ($)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="CAD">CAD (C$)</option>
+            <option value="AUD">AUD (A$)</option>
+            <option value="NZD">NZD (NZ$)</option>
+            <option value="SGD">SGD (S$)</option>
+            <option value="MYR">MYR (RM)</option>
+        </select>
+
+        <label for="pricePerContainer">
+            Price Per Container (optional)
+        </label>
+
+        <input
+            type="number"
+            id="pricePerContainer"
+            placeholder="e.g. 40"
+            min="0"
+            step="any"
+        >
+
+        <button id="calculateButton">
+            Calculate
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <section class="content-section">
+
+    <h2>How to Use the Paint Calculator</h2>
+
+    <p>
+        Choose whether you are painting a single wall or a whole room, then enter the required dimensions.
+        Select Metric or Imperial units, add the number of coats you plan to apply, and enter the paint coverage rate shown on your paint container or product specifications.
+    </p>
+
+    <p>
+        If you want to deduct doors and windows, you can either enter their total area directly or choose "Help me calculate it" and enter the width, height, and quantity for doors and windows of the same size.
+    </p>
+
+    <p>
+        You can also enter the paint container size to estimate how many containers you may need.
+        If you know the price per container, enter it to estimate the total paint cost.
+    </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>How Paint Calculation Works</h2>
+
+        <p>
+            For a single wall, the calculator multiplies the wall width by the wall height to determine the wall area.
+        </p>
+
+        <p>
+            For a whole room, it calculates the perimeter using the room length and width, then multiplies the perimeter by the wall height.
+        </p>
+
+        <p>
+            Any door and window areas you enter are deducted from the wall area to calculate the paintable surface area.
+            That area is then multiplied by the number of coats and divided by the paint coverage rate.
+        </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>How Many Coats of Paint Do I Need?</h2>
+
+        <p>
+            The number of coats required depends on the paint, surface condition, colour change, primer, and manufacturer's instructions.
+        </p>
+
+        <p>
+            Two coats are often used for many interior painting projects, so the calculator starts with two coats by default.
+            You can change this value to match your project.
+        </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>Understanding Paint Coverage</h2>
+
+        <p>
+            Paint coverage tells you approximately how much surface area a given amount of paint can cover.
+            Manufacturers usually provide a coverage rate on the paint container or product specifications.
+        </p>
+
+        <p>
+            Actual coverage can vary depending on the surface texture, porosity, application method, and paint product.
+            Use the manufacturer's stated coverage whenever possible.
+        </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+    <h2>Should I Subtract Doors and Windows?</h2>
+
+    <p>
+        If there are doors, windows, or other openings that you do not plan to paint,
+        you can subtract their area for a more tailored estimate.
+    </p>
+
+    <p>
+        If you already know the combined area of your doors and windows, choose
+        <strong>I know the total area</strong> and enter it directly.
+        If not, choose <strong>Help me calculate it</strong> and enter the width,
+        height, and quantity of your doors and windows. The calculator will work
+        out the total opening area for you.
+    </p>
+
+    <p>
+        For small openings, you may choose not to deduct them, as some extra paint
+        can be useful for touch-ups, waste, or future repairs.
+    </p>
+
+    </section>
+
+   <section class="content-section">
+
+    <h2>Paint Calculator Example</h2>
+
+    <p>
+        Imagine a room that is 5 metres long, 4 metres wide, and 2.4 metres high.
+        The total wall area is 43.2 square metres.
+    </p>
+
+    <p>
+        Suppose the room has one door measuring 0.9 m × 2.1 m and two windows
+        measuring 1.2 m × 1.2 m each. You can choose <strong>Help me calculate it</strong>
+        and enter these measurements, or choose <strong>I know the total area</strong>
+        if you already know the combined opening area.
+    </p>
+
+    <p>
+        After subtracting the doors and windows, the calculator determines the
+        paintable area. With two coats selected, it then calculates the total
+        coverage required.
+    </p>
+
+    <p>
+        If the paint covers 10 square metres per litre, the calculator estimates
+        the amount of paint required. If you also enter a paint container size,
+        it will round up to the number of containers needed.
+    </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How much paint do I need?</h3>
+
+        <p>
+            The amount of paint you need depends on the paintable surface area, number of coats, and the coverage rate of your chosen paint.
+        </p>
+
+
+        <h3>How do I calculate paint for a whole room?</h3>
+
+        <p>
+            Choose "A whole room" and enter the room length, room width, and wall height.
+            The calculator uses the room perimeter to calculate the total wall area.
+        </p>
+
+
+      <h3>Does the calculator subtract doors and windows?</h3>
+
+       <p>
+          Yes. If you already know the combined area of your doors and windows,
+          choose <strong>I know the total area</strong> and enter it directly.
+          Otherwise, choose <strong>Help me calculate it</strong> and enter the
+          width, height, and quantity of your doors and windows. The calculator
+          will subtract the total opening area from the wall area.
+       </p>
+
+
+        <h3>What paint coverage should I use?</h3>
+
+        <p>
+            Use the coverage rate provided by the paint manufacturer whenever possible.
+            Coverage can vary between products and surfaces.
+        </p>
+
+
+        <h3>Does this calculator include multiple coats?</h3>
+
+        <p>
+            Yes. Enter the number of coats you plan to apply, and the calculator includes them in the estimated paint requirement.
+        </p>
+
+
+        <h3>How many paint containers should I buy?</h3>
+
+        <p>
+            Enter the container size you plan to purchase. The calculator will round up to the next full container so that the estimated paint requirement is covered.
+        </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>Important Note</h2>
+
+        <p>
+            This paint calculator provides an estimate only. Actual paint requirements can vary depending on surface condition, texture, porosity, application method, paint formulation, colour change, and manufacturer specifications.
+        </p>
+
+        <p>
+            Always check the paint manufacturer's coverage and application instructions before purchasing paint.
+        </p>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
