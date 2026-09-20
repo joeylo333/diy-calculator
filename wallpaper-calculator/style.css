@@ -9,15 +9,56 @@ body {
     color: #1f2937;
 }
 
-header {
-    background: white;
+/* Site Header */
+
+.site-header {
     border-bottom: 1px solid #e5e7eb;
-    padding: 20px 24px;
+    background: #ffffff;
 }
 
-header h1 {
-    margin: 0;
+.nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
     font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.nav-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.logo:hover {
+    color: #111827;
+}
+
+@media (max-width: 760px) {
+    .nav {
+        padding: 18px 20px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        font-size: 14px;
+    }
 }
 
 main {
@@ -303,4 +344,12 @@ button:hover {
 .content-section p {
     line-height: 1.7;
     color: #4b5563;
+}
+header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header a:hover {
+    opacity: 0.8;
 }

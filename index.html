@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,410 +9,383 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Wallpaper Calculator | Calculate How Many Rolls You Need</title>
+    <title>PrepMyProject | Simple Tools for Smarter Home Projects</title>
 
     <meta
         name="description"
-        content="Free wallpaper calculator to estimate how many rolls you need. Calculate wallpaper for a single wall or whole room using roll size, pattern repeat, drop match, and trimming allowance."
+        content="Plan your next home improvement project with simple calculators and planning tools from PrepMyProject."
     >
 
     <meta name="robots" content="index, follow">
 
-    <meta property="og:type" content="website">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <meta
-        property="og:title"
-        content="Wallpaper Calculator | Calculate How Many Rolls You Need"
-    >
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background: #ffffff;
+        }
 
-    <meta
-        property="og:description"
-        content="Estimate how many rolls of wallpaper you need for a single wall or whole room, including pattern repeat and drop match."
-    >
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        /* Header */
 
+        .site-header {
+            border-bottom: 1px solid #e5e7eb;
+            background: #ffffff;
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        /* Hero */
+
+        .hero {
+            background: #f4f6f8;
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin: 0 0 20px;
+            font-size: 52px;
+            line-height: 1.1;
+            color: #111827;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 0 auto 32px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #6b7280;
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 8px;
+            background: #111827;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .primary-button:hover {
+            background: #374151;
+        }
+
+        /* Calculators */
+
+        .section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-heading {
+            margin-bottom: 36px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 12px;
+            font-size: 34px;
+            color: #111827;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .tool-card {
+            padding: 28px;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            background: #ffffff;
+        }
+
+        .tool-card h3 {
+            margin: 0 0 12px;
+            font-size: 21px;
+            color: #111827;
+        }
+
+        .tool-card p {
+            min-height: 52px;
+            margin: 0 0 24px;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+
+        .tool-link {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        .coming-soon {
+            font-size: 14px;
+            font-weight: 700;
+            color: #9ca3af;
+        }
+
+        /* About */
+
+        .about {
+            background: #f4f6f8;
+        }
+
+        .about-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            margin: 0 0 20px;
+            font-size: 34px;
+            color: #111827;
+        }
+
+        .about-content p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #6b7280;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 32px 24px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 760px) {
+
+            .nav {
+                padding: 18px 20px;
+            }
+
+            .nav-links {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 72px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>DIY Calculator</h1>
+    <header class="site-header">
+        <nav class="nav">
+
+            <a class="logo" href="/">
+                PrepMyProject
+            </a>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="#calculators">Calculators</a>
+                <a href="#about">About</a>
+            </div>
+
+        </nav>
     </header>
+
 
     <main>
 
-        <h2>Wallpaper Calculator</h2>
+        <section class="hero">
 
-        <p>
-            Calculate how many rolls of wallpaper you need for your project.
-        </p>
+            <div class="hero-content">
 
-        <div class="calculator">
-            <div class="unit-selector">
+                <h1>
+                    Plan smarter.<br>
+                    Build with confidence.
+                </h1>
 
-    <p class="section-label">Measurement Unit</p>
+                <p>
+                    Simple calculators and planning tools to help you
+                    estimate materials, quantities and costs for your
+                    next home improvement project.
+                </p>
 
-    <div class="unit-buttons">
+                <a class="primary-button" href="#calculators">
+                    Explore Calculators
+                </a>
 
-        <label>
-            <input type="radio" name="unitSystem" value="metric" checked>
-            Metric
-        </label>
+            </div>
 
-        <label>
-            <input type="radio" name="unitSystem" value="imperial">
-            Imperial
-        </label>
+        </section>
 
-    </div>
 
-</div>
-
-            <div class="project-type">
-
-    <p class="section-label">What are you wallpapering?</p>
-
-    <label>
-        <input type="radio" name="projectType" value="wall" checked>
-        A single wall
-    </label>
-
-    <label>
-        <input type="radio" name="projectType" value="room">
-        A whole room
-    </label>
-
-</div>
-            
-
-            <div id="singleWallInputs">
-
-    <label for="wallWidth" id="wallWidthLabel">Wall Width (m)</label>
-    <input type="number" id="wallWidth" placeholder="e.g. 4">
-
-</div>
-
-<div id="wholeRoomInputs" style="display: none;">
-
-    <label for="roomLength" id="roomLengthLabel">Room Length (m)</label>
-    <input type="number" id="roomLength" placeholder="e.g. 5">
-
-    <label for="roomWidth" id="roomWidthLabel">Room Width (m)</label>
-    <input type="number" id="roomWidth" placeholder="e.g. 4">
-
-</div>
-
-            <label for="wallHeight" id="wallHeightLabel">Wall Height (m)</label>
-            <input type="number" id="wallHeight" placeholder="e.g. 2.4">
-
-            <label for="rollWidth" id="rollWidthLabel">Wallpaper Roll Width (cm)</label>
-            <p class="helper-text">Check the wallpaper roll label or product specifications for the roll size.
-            </p>
-            <input type="number" id="rollWidth" placeholder="e.g. 53">
-
-            <label for="rollLength" id="rollLengthLabel">Wallpaper Roll Length (m)</label>
-            <input type="number" id="rollLength" placeholder="e.g. 10.05">
-
-<div class="pattern-match">
-
-    <p class="section-label">Pattern Match</p>
-
-    <label>
-        <input type="radio" name="patternMatch" value="free">
-        Free / No Match
-    </label>
-
-    <label>
-        <input type="radio" name="patternMatch" value="straight" checked>
-        Straight Match
-    </label>
-
-    <label>
-        <input type="radio" name="patternMatch" value="drop">
-        Drop / Offset Match
-    </label>
-
-</div>
-           <div id="patternRepeatGroup">
-    <label for="patternRepeat" id="patternRepeatLabel">
-    Pattern Repeat (cm)
-</label>
-
-<p class="helper-text">
-    Usually shown on the wallpaper label or product specifications.
-</p>
-
-<input type="number" id="patternRepeat" placeholder="e.g. 64">
-</div> 
-<div id="patternOffsetGroup" style="display: none;">
-    <label for="patternOffset" id="patternOffsetLabel">
-        Pattern Offset (cm)
-    </label>
-    <p class="helper-text">
-    For drop match wallpaper, enter the pattern offset shown by the manufacturer.
-    </p>
-    <input
-        type="number"
-        id="patternOffset"
-        placeholder="e.g. 32"
-        min="0"
-    >
-</div>
-<label for="trimAllowance" id="trimAllowanceLabel">
-    Trimming Allowance (cm)
-</label>
-<p class="helper-text">
-    Extra length added to each strip for trimming at the top and bottom. A typical allowance is pre-filled, but you can adjust it.
-</p>
-<input
-    type="number"
-    id="trimAllowance"
-    value="10"
-    min="0"
-    step="1"
->
-<label for="currency">Currency</label>
-
-<select id="currency">
-    <option value="USD">USD ($)</option>
-    <option value="GBP">GBP (£)</option>
-    <option value="EUR">EUR (€)</option>
-    <option value="CAD">CAD (C$)</option>
-    <option value="AUD">AUD (A$)</option>
-    <option value="NZD">NZD (NZ$)</option>
-    <option value="SGD">SGD (S$)</option>
-    <option value="MYR">MYR (RM)</option>
-</select>      
-            <label for="pricePerRoll">Price Per Roll (optional)</label>
-            <input type="number" id="pricePerRoll" placeholder="e.g. 30">
-
-            <button id="calculateButton">Calculate</button>
-            <div id="result"></div>
-
-        </div>
-<section class="content-section">
-
-    <h2>How to Use the Wallpaper Calculator</h2>
-
-    <p>
-        Enter the size of your wall or room, then add the dimensions of your wallpaper roll.
-        Choose the correct pattern match type and enter the pattern repeat shown on the wallpaper label.
-    </p>
-
-    <p>
-        The calculator will estimate how many full wallpaper strips you need, how many strips fit on each roll,
-        and the total number of rolls required.
-    </p>
-
-    <p>
-        If you know the price per roll, you can also enter it to estimate the total material cost.
-    </p>
-
-</section>
-<section class="content-section">
-
-    <h2>How Wallpaper Roll Calculation Works</h2>
-
-    <p>
-        Wallpaper is installed in vertical strips, so estimating the number of rolls starts
-        with calculating how many strips are needed to cover the wall.
-    </p>
-
-    <p>
-        The calculator divides the total wall width by the wallpaper roll width and rounds
-        the result up to the next full strip.
-    </p>
-
-    <p>
-        It then calculates the required length of each strip using the wall height,
-        trimming allowance, and pattern repeat where applicable.
-    </p>
-
-    <p>
-        Finally, the calculator determines how many complete strips can be cut from one
-        roll and uses that number to estimate the total rolls required.
-    </p>
-
-</section>
-<section class="content-section">
-
-    <h2>Understanding Wallpaper Pattern Matches</h2>
-
-    <p>
-        The pattern match determines how wallpaper strips need to be aligned during installation.
-        Choosing the correct match type is important because patterned wallpaper may require
-        extra material to keep the design aligned.
-    </p>
-
-    <h3>Free / No Match</h3>
-
-    <p>
-        No pattern alignment is required between adjacent strips. This usually creates the
-        least waste because each strip can be cut based mainly on the wall height and
-        trimming allowance.
-    </p>
-
-    <h3>Straight Match</h3>
-
-    <p>
-        The pattern lines up at the same height on each adjacent strip. The calculator uses
-        the pattern repeat to determine the required cut length so that complete repeats
-        are available for alignment.
-    </p>
-
-    <h3>Drop / Offset Match</h3>
-
-    <p>
-        The pattern on the next strip is offset rather than aligned at the same height.
-        Enter both the pattern repeat and pattern offset shown in the wallpaper manufacturer's
-        specifications.
-    </p>
-
-</section>
-<section class="content-section">
-
-    <h2>How Much Extra Wallpaper Should I Buy?</h2>
-
-    <p>
-        This calculator estimates the number of rolls required using your wall dimensions,
-        wallpaper roll size, trimming allowance, and pattern match.
-    </p>
+        <section class="section" id="calculators">
 
-    <p>
-        It does not automatically add a fixed extra percentage to the final result.
-        Pattern matching, trimming, and unused roll length already create some material waste,
-        so adding a blanket percentage can sometimes overestimate what you need.
-    </p>
+            <div class="section-heading">
 
-    <p>
-        For projects with difficult corners, uneven walls, complex patterns, or a higher risk
-        of installation mistakes, consider buying additional material or following the
-        wallpaper manufacturer's recommendation.
-    </p>
+                <h2>Project Calculators</h2>
 
-</section>
+                <p>
+                    Practical tools to help you plan before you buy,
+                    measure or build.
+                </p>
 
+            </div>
 
-<section class="content-section">
 
-    <h2>What About Doors and Windows?</h2>
+            <div class="calculator-grid">
 
-    <p>
-        This calculator does not deduct doors and windows from the wall measurement.
-    </p>
+                <article class="tool-card">
 
-    <p>
-        Keeping these areas in the estimate provides a more conservative result and can help
-        account for offcuts, trimming, pattern alignment, and installation mistakes.
-    </p>
+                    <h3>Wallpaper Calculator</h3>
 
-    <p>
-        If your project contains unusually large openings, you may want to compare the estimate
-        with the wallpaper manufacturer's own guidance or consult an installer.
-    </p>
+                    <p>
+                        Estimate how many rolls of wallpaper you need
+                        for a wall or an entire room.
+                    </p>
 
-</section>
+                    <a
+                        class="tool-link"
+                        href="./wallpaper-calculator/index.html"
+                    >
+                        Open Calculator →
+                    </a>
 
+                </article>
 
-<section class="content-section">
 
-    <h2>Wallpaper Calculator Example</h2>
+                <article class="tool-card">
 
-    <p>
-        Imagine you are wallpapering a single wall that is 4 metres wide and 2.4 metres high.
-        Your wallpaper roll is 53 cm wide and 10.05 metres long.
-    </p>
+                    <h3>Paint Calculator</h3>
 
-    <p>
-        With a 64 cm straight pattern repeat and a 10 cm trimming allowance, the calculator
-        determines how many vertical strips are required, adjusts the cut length for the pattern,
-        and calculates how many complete strips fit on each roll.
-    </p>
+                    <p>
+                        Estimate how much paint you may need for your
+                        next painting project.
+                    </p>
 
-    <p>
-        In this example, the wall requires 8 strips. Each strip is approximately 2.56 metres long,
-        and 3 complete strips fit on each roll, giving an estimated requirement of 3 rolls.
-    </p>
+                    <span class="coming-soon">
+                        Coming soon
+                    </span>
 
-</section>
+                </article>
 
 
-<section class="content-section">
+                <article class="tool-card">
 
-    <h2>Frequently Asked Questions</h2>
+                    <h3>Tile Calculator</h3>
 
-    <h3>How many rolls of wallpaper do I need?</h3>
+                    <p>
+                        Estimate the number of tiles needed for floors,
+                        walls and other surfaces.
+                    </p>
 
-    <p>
-        The number of rolls depends on the total wall width, wall height, wallpaper roll size,
-        trimming allowance, and pattern match. Enter these details into the calculator to get
-        an estimate.
-    </p>
+                    <span class="coming-soon">
+                        Coming soon
+                    </span>
 
+                </article>
 
-    <h3>How do I calculate wallpaper for a whole room?</h3>
+            </div>
 
-    <p>
-        Choose "A whole room" and enter the room length, room width, and wall height.
-        The calculator uses the room perimeter to estimate the number of wallpaper strips required.
-    </p>
+        </section>
 
 
-    <h3>What is a wallpaper pattern repeat?</h3>
+        <section class="about" id="about">
 
-    <p>
-        Pattern repeat is the vertical distance before the wallpaper design repeats.
-        It is usually listed on the wallpaper label or product specifications.
-    </p>
+            <div class="about-content">
 
+                <h2>Plan it before you build it.</h2>
 
-    <h3>What is drop match wallpaper?</h3>
+                <p>
+                    PrepMyProject provides simple tools for homeowners,
+                    DIYers and renovators who want a clearer idea of
+                    what their project may require before getting
+                    started.
+                </p>
 
-    <p>
-        Drop or offset match wallpaper requires adjacent strips to be positioned at different
-        pattern heights. Enter both the pattern repeat and pattern offset shown by the manufacturer.
-    </p>
+            </div>
 
+        </section>
 
-    <h3>Should I subtract doors and windows?</h3>
-
-    <p>
-        This calculator does not subtract doors and windows. This creates a more conservative
-        estimate and provides some allowance for offcuts, pattern alignment, and mistakes.
-    </p>
-
-
-    <h3>Should I buy an extra roll of wallpaper?</h3>
-
-    <p>
-        An extra roll can be useful for complex projects, future repairs, installation mistakes,
-        or wallpaper with significant pattern matching waste. Check the manufacturer's guidance
-        before purchasing.
-    </p>
-
-</section>
-
-
-<section class="content-section">
-
-    <h2>Important Note</h2>
-
-    <p>
-        This wallpaper calculator provides an estimate only. Actual wallpaper requirements can
-        vary depending on wall condition, installation method, pattern alignment, roll format,
-        manufacturer specifications, and installer technique.
-    </p>
-
-    <p>
-        Always check the wallpaper label and manufacturer's installation instructions before
-        ordering or cutting material.
-    </p>
-
-</section>
     </main>
 
-    <script src="script.js"></script>
+
+    <footer>
+        © 2026 PrepMyProject
+    </footer>
 
 </body>
 
